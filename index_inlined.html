@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisleri - Natural Mineral Water</title>
+    <style>
+:root {
+    --bg-light: #f5f4ef;
+    --bg-dark: #1b1918;
+    --text-dark: #1b1918;
+    --text-light: #f5f4ef;
+    --accent: #d24e3c;
+    --border-color: #e2dfd5;
+    --border-dark: #33312e;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    color: white;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('C:/Users/dipta/.gemini/antigravity/brain/fb5a2f95-c4a3-4d41-b878-fe41e655f97c/hero_bg_1780672632800.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, var(--bg-light), transparent);
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    z-index: 2;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    letter-spacing: -2px;
+}
+
+.hero-bottle {
+    position: absolute;
+    bottom: 5%;
+    height: 50vh;
+    z-index: 3;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+}
+
+/* Section Common */
+.section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    max-width: 100%;
+    padding: 6rem 0;
+}
+
+.section-dark .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.section-dark .subtitle {
+    color: #999;
+}
+
+h2.title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Intro Section */
+.intro {
+    padding-top: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--text-dark);
+    color: var(--text-dark);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+}
+
+.btn-dark-outline {
+    background-color: transparent;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.btn-dark-outline:hover {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+}
+
+.coords {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card-value {
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.card-dark {
+    background-color: transparent;
+    border: 1px solid var(--border-dark);
+    color: var(--text-light);
+}
+
+.card-dark h3 {
+    color: var(--text-light);
+}
+
+.card-dark p {
+    color: #aaa;
+}
+
+/* Alkaline Section */
+.alkaline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.alkaline-img-container {
+    text-align: center;
+}
+
+.alkaline-img {
+    height: 400px;
+    object-fit: contain;
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem 0;
+    margin: 4rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+/* Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.data-table th, .data-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    font-weight: 600;
+}
+
+.data-table td {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.data-table .highlight {
+    background-color: #fceceb;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.data-table-dark th, .data-table-dark td {
+    border-color: var(--border-dark);
+}
+
+.data-table-dark th {
+    color: #999;
+}
+
+/* Pricing */
+.pricing-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    border: 1px solid var(--border-dark);
+    transition: transform 0.3s ease;
+}
+
+.pricing-card.popular {
+    border-color: var(--accent);
+    transform: scale(1.05);
+    background-color: rgba(210, 78, 60, 0.05);
+}
+
+.pricing-qty {
+    font-size: 4rem;
+    font-family: var(--font-heading);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.pricing-price {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.pricing-features li {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Image with text */
+.img-feature {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.list-check {
+    list-style: none;
+}
+
+.list-check li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.list-check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-dark);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+}
+
+.footer-col h4 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    color: #ddd;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero h1 {
+        font-size: 4rem;
+    }
+    h2.title {
+        font-size: 2.5rem;
+    }
+    .pricing-card.popular {
+        transform: none;
+    }
+}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">BISLERI</div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Catalog</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="nav-icons">
+            <i data-lucide="search"></i>
+            <i data-lucide="user"></i>
+            <i data-lucide="heart"></i>
+            <i data-lucide="shopping-bag"></i>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Himalayan<br>Foothills</h1>
+        <img src="C:/Users/dipta/.gemini/antigravity/brain/fb5a2f95-c4a3-4d41-b878-fe41e655f97c/water_bottle_1780672658141.png" alt="Bisleri Water Bottle" class="hero-bottle">
+    </section>
+
+    <!-- Intro -->
+    <section class="section text-center intro">
+        <span class="subtitle">Origin: Himalayan Foothills</span>
+        <h2 class="title" style="font-size: 4rem;">Natural Mineral Water</h2>
+        <p class="coords">28.5823° N, 83.9310° E</p>
+        <button class="btn"><i data-lucide="shopping-cart"></i> Shop Now</button>
+    </section>
+
+    <!-- Naturally Alkaline -->
+    <section class="section">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <span class="subtitle">Sourced from the Himalayas</span>
+            <h2 class="title">Naturally Alkaline</h2>
+            <p style="max-width: 600px; margin: 0 auto; color: #555;">Nature-infused minerals and refreshing hydration, drawn from pristine Himalayan bedrocks - carrying calcium, magnesium, bicarbonates & more.</p>
+        </div>
+
+        <div class="grid-3" style="align-items: center;">
+            <div class="alkaline-content">
+                <div class="card">
+                    <h3>Calcium</h3>
+                    <div class="card-value">75.63 <span style="font-size:1rem; color:#666;">mg/l</span></div>
+                    <p>Absorbed from Himalayan limestone, calcium fosters bone mineral density.</p>
+                </div>
+                <div class="card">
+                    <h3>Magnesium</h3>
+                    <div class="card-value">18 <span style="font-size:1rem; color:#666;">mg/l</span></div>
+                    <p>Leached from dolomite and limestone, magnesium is vital for cellular energy.</p>
+                </div>
+            </div>
+            
+            <div class="alkaline-img-container">
+                <img src="C:/Users/dipta/.gemini/antigravity/brain/fb5a2f95-c4a3-4d41-b878-fe41e655f97c/water_bottle_1780672658141.png" alt="Bottle" class="alkaline-img">
+            </div>
+
+            <div class="alkaline-content">
+                <div class="card">
+                    <h3>Bicarbonates</h3>
+                    <div class="card-value">276 <span style="font-size:1rem; color:#666;">mg/l</span></div>
+                    <p>Formed through carbonate rock interaction. Aids in neutralizing acidity.</p>
+                </div>
+                <div class="card">
+                    <h3>pH - Alkaline</h3>
+                    <div class="card-value">7.84</div>
+                    <p>The geological composition of the Himalayas yields high alkalinity.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value">8°C</div>
+                <div class="stat-label">Source Temp</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">320</div>
+                <div class="stat-label">TDS mg/L</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">4200m</div>
+                <div class="stat-label">Altitude</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">ISO</div>
+                <div class="stat-label">Certified</div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <button class="btn btn-outline" style="margin-right: 1rem;"><i data-lucide="file-text"></i> View Lab Reports</button>
+            <button class="btn"><i data-lucide="shopping-cart"></i> Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Dark Section: Born in the Himalayas -->
+    <section class="section-dark">
+        <div class="container text-center">
+            <span class="subtitle">Origin Journey</span>
+            <h2 class="title">Born in the Himalayas</h2>
+            
+            <div class="grid-4" style="margin-top: 4rem;">
+                <div class="card card-dark">
+                    <h3>4200m</h3>
+                    <p>Altitude above sea level</p>
+                </div>
+                <div class="card card-dark">
+                    <h3>8°C</h3>
+                    <p>Natural cold spring water</p>
+                </div>
+                <div class="card card-dark">
+                    <h3>320m</h3>
+                    <p>Naturally dissolved solids</p>
+                </div>
+                <div class="card card-dark">
+                    <h3>pH 8</h3>
+                    <p>No artificial alkalization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section">
+        <div class="text-center">
+            <span class="subtitle">Independent Analysis</span>
+            <h2 class="title">Bisleri vs. Others</h2>
+        </div>
+        
+        <div style="overflow-x: auto;">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th class="highlight">Bisleri<br><span style="font-size:0.7rem; font-weight:normal; color:#333;">Natural Mineral</span></th>
+                        <th>RO Water</th>
+                        <th>Kinley</th>
+                        <th>Aquafina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TDS (mg/l)</td>
+                        <td class="highlight">320</td>
+                        <td>< 20</td>
+                        <td>~100</td>
+                        <td>~50</td>
+                    </tr>
+                    <tr>
+                        <td>pH</td>
+                        <td class="highlight">7.84</td>
+                        <td>5.5 - 6.5</td>
+                        <td>7.0</td>
+                        <td>6.5</td>
+                    </tr>
+                    <tr>
+                        <td>Calcium</td>
+                        <td class="highlight">75.63</td>
+                        <td>~0</td>
+                        <td>10</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Magnesium</td>
+                        <td class="highlight">18</td>
+                        <td>~0</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Helps With -->
+    <section class="section">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <span class="subtitle">Research-Backed</span>
+            <h2 class="title">Helps With</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div style="color: var(--accent); margin-bottom: 1rem;"><i data-lucide="heart-pulse"></i></div>
+                <h3>General Wellness</h3>
+                <p>Rich mineral content supports vital body functions.</p>
+            </div>
+            <div class="card">
+                <div style="color: var(--accent); margin-bottom: 1rem;"><i data-lucide="flame"></i></div>
+                <h3>Acidity Relief</h3>
+                <p>Natural alkaline water can render pepsin inactive.</p>
+            </div>
+            <div class="card">
+                <div style="color: var(--accent); margin-bottom: 1rem;"><i data-lucide="activity"></i></div>
+                <h3>Hypertension Aid</h3>
+                <p>Magnesium-rich water helps decrease blood pressure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Choose Your Supply (Dark) -->
+    <section class="section-dark">
+        <div class="container text-center">
+            <span class="subtitle">Long-Term Wellness</span>
+            <h2 class="title">Choose Your Supply</h2>
+            
+            <div class="grid-3" style="margin-top: 4rem;">
+                <div class="card card-dark pricing-card">
+                    <div class="pricing-qty">4</div>
+                    <div style="color: #999;">Cans / Month</div>
+                    <div class="pricing-price">₹ 3,490</div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> Free Delivery</li>
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> BPA-Free Can</li>
+                    </ul>
+                    <button class="btn btn-dark-outline" style="width: 100%; justify-content: center;">Order Now</button>
+                </div>
+                
+                <div class="card card-dark pricing-card popular">
+                    <div style="color: var(--accent); font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 1rem;">Most Popular</div>
+                    <div class="pricing-qty">8</div>
+                    <div style="color: #999;">Cans / Month</div>
+                    <div class="pricing-price">₹ 6,390</div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> Free Delivery</li>
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> Priority Dispatch</li>
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> Free Can</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; justify-content: center; background-color: var(--accent); color: white;">Order Now</button>
+                </div>
+                
+                <div class="card card-dark pricing-card">
+                    <div class="pricing-qty">16</div>
+                    <div style="color: #999;">Cans / Month</div>
+                    <div class="pricing-price">₹ 11,900</div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> Free Delivery</li>
+                        <li><i data-lucide="check" style="color:var(--accent); width:16px;"></i> Family Pack</li>
+                    </ul>
+                    <button class="btn btn-dark-outline" style="width: 100%; justify-content: center;">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nourishing Two Lives -->
+    <section class="section">
+        <div class="grid-2">
+            <div>
+                <img src="C:/Users/dipta/.gemini/antigravity/brain/fb5a2f95-c4a3-4d41-b878-fe41e655f97c/pregnant_woman_1780672689810.png" alt="Pregnant Woman" class="img-feature">
+            </div>
+            <div>
+                <span class="subtitle">#PregnancyEssentials</span>
+                <h2 class="title" style="font-size: 3rem;">Nourishing<br>Two Lives</h2>
+                <p style="margin-bottom: 2rem; color: #555; font-size: 1.1rem;">Experience 100% natural alkaline water with the goodness of minerals and micronutrients for a healthy pregnancy.</p>
+                
+                <div class="grid-2" style="gap: 1rem; margin-bottom: 2rem;">
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;"><i data-lucide="baby" style="width:16px; color:var(--accent);"></i> Healthy Birth Weight</h4>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;"><i data-lucide="shield" style="width:16px; color:var(--accent);"></i> Foetal Minerals</h4>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;"><i data-lucide="heart" style="width:16px; color:var(--accent);"></i> Blood Pressure Support</h4>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;"><i data-lucide="brain" style="width:16px; color:var(--accent);"></i> Neural Development</h4>
+                    </div>
+                </div>
+                
+                <button class="btn"><i data-lucide="shopping-cart"></i> Shop Now</button>
+                <button class="btn btn-outline" style="margin-left: 1rem;">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where Minerals Go to Work -->
+    <section class="section" style="background-color: white;">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <span class="subtitle">Inside Your Body</span>
+            <h2 class="title">Where Minerals<br>Go to Work</h2>
+        </div>
+        
+        <div class="grid-3" style="align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card">
+                    <h4>Brain & Nerves</h4>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Magnesium supports neurological function.</p>
+                </div>
+                <div class="card">
+                    <h4>Heart</h4>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Natural minerals help regulate blood pressure.</p>
+                </div>
+                <div class="card">
+                    <h4>Bones</h4>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Calcium builds bone density.</p>
+                </div>
+            </div>
+            
+            <div style="text-center">
+                <img src="C:/Users/dipta/.gemini/antigravity/brain/fb5a2f95-c4a3-4d41-b878-fe41e655f97c/anatomy_silhouette_1780672712103.png" alt="Anatomy" style="width: 100%; max-height: 500px; object-fit: contain;">
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card">
+                    <h4>Lungs & Blood</h4>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Bicarbonates buffer blood pH.</p>
+                </div>
+                <div class="card">
+                    <h4>Gut & Digestion</h4>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Alkaline pH neutralizes stomach acid.</p>
+                </div>
+                <div class="card">
+                    <h4>Muscles</h4>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Magnesium is essential for glycolysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Six Reasons to Switch -->
+    <section class="section">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <span class="subtitle">Why Choose Bisleri</span>
+            <h2 class="title">Six Reasons to Switch</h2>
+        </div>
+        
+        <div class="grid-3">
+            <div class="card">
+                <h3>Natural Himalayan Source</h3>
+                <p>Sourced from 4200m altitude near the Nepal border.</p>
+            </div>
+            <div class="card">
+                <h3>Rich Mineral Profile</h3>
+                <p>320 mg/l of naturally dissolved Calcium, Magnesium.</p>
+            </div>
+            <div class="card">
+                <h3>Naturally Alkaline</h3>
+                <p>pH 7.84 achieved through geological filtration.</p>
+            </div>
+            <div class="card">
+                <h3>Supports Bone Health</h3>
+                <p>75.63 mg/l calcium meets 25% of your daily RDA.</p>
+            </div>
+            <div class="card">
+                <h3>Reusable BPA-Free Can</h3>
+                <p>Sustainable 20L can. Reuse it, return it.</p>
+            </div>
+            <div class="card">
+                <h3>Certified & Transparent</h3>
+                <p>BIS and FSSAI certified. Every batch tested.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">BISLERI</div>
+                <p style="color: #999; font-size: 0.9rem;">Naturally alkaline mineral water sourced from the pristine Himalayas.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">One-Time Order</a></li>
+                    <li><a href="#">Subscriptions</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Lab Reports</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">support@bisleri.com</a></li>
+                    <li><a href="#">+91 1800-XXX-XXXX</a></li>
+                </ul>
+            </div>
+        </div>
+        <p style="color: #666; font-size: 0.8rem; border-top: 1px solid var(--border-dark); padding-top: 2rem;">&copy; 2026 Bisleri. All rights reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
