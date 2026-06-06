@@ -76,7 +76,7 @@ header {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('C:/Users/dipta/.gemini/antigravity/brain/fb5a2f95-c4a3-4d41-b878-fe41e655f97c/hero_bg_1780672632800.png');
+    background-image: url('Assets/hero_bg.png');
     background-size: cover;
     background-position: center;
     position: relative;
